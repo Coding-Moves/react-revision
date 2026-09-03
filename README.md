@@ -121,7 +121,7 @@ npm run dev
 ## Progress
 
 **Week 1 — Foundations**
-- [ ] Day 1 · JSX & rendering
+- [x] Day 1 · JSX & rendering
 - [ ] Day 2 · Components & props
 - [ ] Day 3 · useState
 - [ ] Day 4 · useEffect
