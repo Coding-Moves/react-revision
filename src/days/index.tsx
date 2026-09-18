@@ -1,1 +1,1 @@
-export { default as Day01 } from "./day-01/Day01";
+export { default as Day02 } from "./day-02/Day02";
