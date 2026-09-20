@@ -1,7 +1,7 @@
 import * as Days from "./days";
 
 function App() {
-    return <Days.Day02 />;
+    return <Days.Day03 />;
 }
 
 export default App;
