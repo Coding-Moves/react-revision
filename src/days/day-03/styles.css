@@ -1,0 +1,366 @@
+
+.day03 {
+  min-height: 100vh;
+  padding: 60px 20px;
+  text-align: center;
+
+  background:
+    radial-gradient(circle at top left, #183b35 0%, transparent 35%),
+    radial-gradient(circle at bottom right, #24183b 0%, transparent 35%),
+    linear-gradient(135deg, #0f172a, #111827);
+
+  color: white;
+  box-sizing: border-box;
+}
+
+.day03 h1 {
+  margin: 0 0 40px;
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: 1px;
+
+  background: linear-gradient(90deg, #0ce188, #67e8f9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.counter {
+  width: min(450px, 90%);
+  margin: 0 auto;
+  padding: 40px 30px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.08);
+
+  position: relative;
+  overflow: visible;
+}
+
+/* Small decorative glow */
+
+.counter::before {
+  content: "";
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  top: -60px;
+  right: -60px;
+
+  background: #0ce188;
+  border-radius: 50%;
+
+  filter: blur(70px);
+  opacity: 0.18;
+
+  pointer-events: none;
+}
+
+.counter::after {
+  content: "";
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  bottom: -60px;
+  left: -60px;
+
+  background: #8b5cf6;
+  border-radius: 50%;
+
+  filter: blur(70px);
+  opacity: 0.18;
+
+  pointer-events: none;
+}
+
+/* Count area */
+
+.count-display {
+  position: relative;
+  display: inline-block;
+
+  min-width: 220px;
+  padding: 25px 35px;
+
+  margin-bottom: 35px;
+
+  border-radius: 18px;
+
+  background: rgba(0, 0, 0, 0.22);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    inset 0 0 25px rgba(0, 0, 0, 0.2),
+    0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.counter p {
+  margin: 0;
+
+  font-size: 30px;
+  font-weight: 700;
+
+  color: #0ce188;
+
+  text-shadow:
+    0 0 10px rgba(12, 225, 136, 0.35);
+
+  transition:
+    transform 0.2s ease,
+    text-shadow 0.2s ease;
+}
+
+.count-display:hover p {
+  transform: scale(1.04);
+
+  text-shadow:
+    0 0 18px rgba(12, 225, 136, 0.55);
+}
+
+/* Buttons */
+
+.counter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.counter button {
+  min-width: 125px;
+
+  padding: 12px 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+
+  color: white;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  cursor: pointer;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.counter button:first-child {
+  background: rgba(12, 225, 136, 0.14);
+  border-color: rgba(12, 225, 136, 0.3);
+}
+
+.counter button:last-child {
+  background: rgba(255, 59, 59, 0.12);
+  border-color: rgba(255, 59, 59, 0.3);
+}
+
+.counter button:first-child:hover {
+  background: rgba(12, 225, 136, 0.25);
+
+  border-color: #0ce188;
+
+  box-shadow:
+    0 0 20px rgba(12, 225, 136, 0.25);
+
+  transform: translateY(-3px);
+}
+
+.counter button:last-child:hover {
+  background: rgba(255, 59, 59, 0.22);
+
+  border-color: #ff3b3b;
+
+  box-shadow:
+    0 0 20px rgba(255, 59, 59, 0.22);
+
+  transform: translateY(-3px);
+}
+
+.counter button:active {
+  transform: translateY(1px) scale(0.97);
+}
+
+/* Common floating animation */
+
+.floating-number {
+  position: absolute;
+
+  top: -15px;
+
+  font-size: 23px;
+  font-weight: 800;
+
+  pointer-events: none;
+
+  animation-duration: 1.2s;
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.3, 1);
+  animation-fill-mode: forwards;
+
+  white-space: nowrap;
+
+  z-index: 10;
+}
+
+/* Increment */
+
+.floating-number.increment {
+  right: -40px;
+
+  color: #0ce188;
+
+  text-shadow:
+    0 0 10px rgba(12, 225, 136, 0.7);
+
+  animation-name: floatIncrement;
+}
+
+/* Decrement */
+
+.floating-number.decrement {
+  left: -40px;
+
+  color: #ff3b3b;
+
+  text-shadow:
+    0 0 10px rgba(255, 59, 59, 0.7);
+
+  animation-name: floatDecrement;
+}
+
+/* Increment animation */
+
+@keyframes floatIncrement {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(15px, -10px)
+      scale(0.6)
+      rotate(5deg);
+  }
+
+  15% {
+    opacity: 1;
+
+    transform:
+      translate(8px, 0)
+      scale(1.15)
+      rotate(0deg);
+  }
+
+  40% {
+    opacity: 1;
+
+    transform:
+      translate(3px, 25px)
+      scale(1.05);
+  }
+
+  70% {
+    opacity: 0.7;
+
+    transform:
+      translate(-2px, 55px)
+      scale(0.95);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-8px, 95px)
+      scale(0.75);
+  }
+}
+
+/* Decrement animation */
+
+@keyframes floatDecrement {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-15px, -10px)
+      scale(0.6)
+      rotate(-5deg);
+  }
+
+  15% {
+    opacity: 1;
+
+    transform:
+      translate(-8px, 0)
+      scale(1.15)
+      rotate(0deg);
+  }
+
+  40% {
+    opacity: 1;
+
+    transform:
+      translate(-3px, 25px)
+      scale(1.05);
+  }
+
+  70% {
+    opacity: 0.7;
+
+    transform:
+      translate(2px, 55px)
+      scale(0.95);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(8px, 95px)
+      scale(0.75);
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 500px) {
+  .day-03 {
+    padding: 40px 15px;
+  }
+
+  .day03 h1 {
+    font-size: 34px;
+  }
+
+  .counter {
+    padding: 30px 20px;
+  }
+
+  .count-display {
+    min-width: 180px;
+  }
+
+  .counter-buttons {
+    flex-direction: column;
+  }
+
+  .counter button {
+    width: 100%;
+  }
+}
+

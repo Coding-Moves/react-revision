@@ -123,7 +123,7 @@ npm run dev
 **Week 1 — Foundations**
 - [x] Day 1 · JSX & rendering
 - [x] Day 2 · Components & props
-- [ ] Day 3 · useState
+- [x] Day 3 · useState
 - [ ] Day 4 · useEffect
 - [ ] Day 5 · Refs
 - [ ] Day 6 · Context
