@@ -149,6 +149,6 @@ npm run dev
 **Weeks 4–5 — Capstone (separate repo)**
 - [ ] Days 21–30 · Build & deploy the full-stack app
 
-## Coding Moves Academy
+## Coding Moves Academy and Lab
 
-This React practice series is part of [Coding Moves Academy](https://codingmoves.netlify.app/academy/). The daily exercises are in this repository; the capstone described above is planned separately.
+This React practice series is part of [Coding Moves Academy](https://codingmoves.netlify.app/academy/) and its daily build exercises also appear in [Coding Moves Lab](https://codingmoves.netlify.app/lab/). The capstone described above is planned separately.
