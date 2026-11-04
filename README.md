@@ -151,4 +151,4 @@ npm run dev
 
 ## Coding Moves Academy and Lab
 
-This React practice series is part of [Coding Moves Academy](https://codingmoves.netlify.app/academy/) and its daily build exercises also appear in [Coding Moves Lab](https://codingmoves.netlify.app/lab/). The capstone described above is planned separately.
+This React practice series is part of [Coding Moves Academy](https://codingmoves.com/academy/) and its daily build exercises also appear in [Coding Moves Lab](https://codingmoves.com/lab/). The capstone described above is planned separately.
